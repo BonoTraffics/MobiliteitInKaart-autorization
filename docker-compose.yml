@@ -1,0 +1,16 @@
+services:
+  cerbos:
+    build: .
+    ports:
+      - "3592:3592"
+      - "3593:3593"
+    volumes:
+      - ./policies:/app/policies
+      - ./.cerbos.yaml:/app/.cerbos.yaml
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3592/_cerbos/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
