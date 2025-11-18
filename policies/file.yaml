@@ -9,15 +9,15 @@ resourcePolicy:
       roles:
         - admin
 
-    - actions: ['list', 'read']
+    - actions: ['list']
       effect: EFFECT_ALLOW
       roles:
         - user
 
-    # - actions: ['read']
-    #   effect: EFFECT_ALLOW
-    #   roles:
-    #     - user
-    #   condition:
-    #     match:
-    #       expr: request.resource.attr.organizationId == request.principal.attr.organizationId
+    - actions: ['read']
+      effect: EFFECT_ALLOW
+      roles:
+        - user
+      condition:
+        match:
+          expr: request.resource.attr.organizationId == request.principal.attr.organizationId
