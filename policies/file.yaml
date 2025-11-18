@@ -1,0 +1,23 @@
+---
+apiVersion: api.cerbos.dev/v1
+resourcePolicy:
+  version: "default"
+  resource: "file"
+  rules:
+    - actions: ['*']
+      effect: EFFECT_ALLOW
+      roles:
+        - admin
+
+    - actions: ['list', 'read']
+      effect: EFFECT_ALLOW
+      roles:
+        - user
+
+    # - actions: ['read']
+    #   effect: EFFECT_ALLOW
+    #   roles:
+    #     - user
+    #   condition:
+    #     match:
+    #       expr: request.resource.attr.organizationId == request.principal.attr.organizationId
