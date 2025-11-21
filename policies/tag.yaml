@@ -8,8 +8,10 @@ resourcePolicy:
       effect: EFFECT_ALLOW
       roles:
         - admin
+        - editor
 
     - actions: ['list', 'read']
       effect: EFFECT_ALLOW
       roles:
         - user
+        - viewer
