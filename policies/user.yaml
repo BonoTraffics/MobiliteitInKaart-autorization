@@ -9,8 +9,8 @@ resourcePolicy:
       roles:
         - admin
 
-    - actions: ['list', 'read']
-      effect: EFFECT_ALLOW
-      roles:
-        - viewer
-        - editor
+    # - actions: ['list', 'read']
+    #   effect: EFFECT_ALLOW
+    #   roles:
+    #     - viewer
+    #     - editor
