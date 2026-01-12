@@ -14,3 +14,11 @@ resourcePolicy:
       effect: EFFECT_ALLOW
       roles:
         - viewer
+
+    - actions: ['read']
+      effect: EFFECT_ALLOW
+      roles:
+        - user
+      condition:
+        match:
+          expr: request.resource.attr.id == request.principal.attr.organizationId
