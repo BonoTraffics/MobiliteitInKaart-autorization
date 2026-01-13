@@ -10,7 +10,18 @@ resourcePolicy:
         - admin
         - editor
 
-    - actions: ['list', 'read']
+    - actions: ['list:all']
+      effect: EFFECT_ALLOW
+      roles:
+        - viewer
+
+    - actions: ['list']
+      effect: EFFECT_ALLOW
+      roles:
+        - user
+        - viewer
+
+    - actions: ['read']
       effect: EFFECT_ALLOW
       roles:
         - viewer
